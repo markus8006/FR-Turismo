@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - FR Turismo Executivo</title>
+    
+    <link rel="stylesheet" href="home.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=Segoe+UI&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="IMAGENS/Logo_Fr.png" class="logo-img">
+            <span class="brand-name">FR Turismo Executivo</span>
+        </div>
+        <nav class="navbar">
+            <a href="home.html" class="active">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="contato.html">Contatos</a>
+            <a href="depoimentos.html">Depoimentos</a>
+            <a href="sobre.html">Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="banner-container">
+            <img src="IMAGENS/Banner_site_fr.png" alt="Banner Principal">
+        </section>
+
+        <section class="cta-container">
+            <a href="agendamento.html" class="btn-cta">
+                Curtiu? Clique aqui e agende um de nossos serviços!
+            </a>
+        </section>
+
+        <section class="carousel-container">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="IMAGENS/Placas_fr.png" alt="Imagem 1">
+                </div>
+                <div class="slide">
+                    <img src="IMAGENS/Cachoeira_carrocel.png" alt="Imagem 2">
+                </div>
+                <div class="slide">
+                    <img src="IMAGENS/Roda_Gigante.png" alt="Imagem 3">
+                </div>
+            </div>
+
+            <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+            <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+        </section>
+
+        <section class="text-content">
+            <p>Na <strong>FR Turismo Executivo</strong>, nosso objetivo é fazer você aproveitar sua viagem. Levamos para os passeios e os melhores lugares para você, com foco em estilos versáteis que possa aproveitar do seu jeito.</p>
+            
+            <p>Se você quer conforto fale conosco, seja uma viagem tradicional, à trabalho ou para evento especial, o FR Turismo Executivo pode ajudar você.</p>
+            
+            <p>Acreditamos que você deve aproveitar de forma confortável e segura. Por esse motivo, oferecemos uma experiência completa de serviços de viagens.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <h5 class="footer-title">Em caso de dúvidas</h5>
+        <p>Mande um e-mail ou uma mensagem para:<br> 
+        <strong>(45) 99916-2194</strong> ou <strong>roratotransladoexecutivo@gmail.com</strong></p>
+        <p class="copyright">FR Turismo Executivo © 2025</p>
+    </footer>
+
+    <script>
+        let indiceSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        // Função para mudar o slide manual ou automatico
+        function mostrarSlide(n) {
+            // Se passar do ultimo, volta pro primeiro
+            if (n >= slides.length) indiceSlide = 0;
+            // Se voltar antes do primeiro, vai pro ultimo
+            if (n < 0) indiceSlide = slides.length - 1;
+
+            // Esconde todos
+            slides.forEach(slide => slide.classList.remove('active'));
+            // Mostra o atual
+            slides[indiceSlide].classList.add('active');
+        }
+
+        function mudarSlide(n) {
+            mostrarSlide(indiceSlide += n);
+        }
+
+        // Opcional: Passar slide sozinho a cada 5 segundos
+        setInterval(() => {
+            mudarSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>

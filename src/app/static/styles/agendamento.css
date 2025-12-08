@@ -1,0 +1,262 @@
+/* === RESET E VARIÁVEIS DE CORES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-roxo: #1e0b44;       /* Principal */
+    --cor-amarelo: #e6cb7f;    /* Detalhes/Ouro */
+    --cor-cinza-bg: #e8e8e8;   /* Fundo cinza */
+    --cor-offwhite: #fdfdfd;   /* Fundo da página */
+    --cor-texto: #2b2727;      /* Texto Escuro */
+}
+
+body {
+    background-color: var(--cor-offwhite);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* === CABEÇALHO / MENU (NOVO ESTILO) === */
+.main-header {
+    background-color: var(--cor-cinza-bg); 
+    padding: 15px 30px;
+    border-bottom: 2px solid var(--cor-roxo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    max-height: 60px;
+    width: auto;
+}
+
+.logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--cor-roxo);
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    background-color: #dcdcdc; 
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: var(--cor-roxo);
+    color: var(--cor-amarelo);
+    border-color: var(--cor-roxo);
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; Removido para o topo não ficar muito longe */
+    padding: 40px 20px;
+}
+
+/* Título Banner (Estilo importado do Depoimentos) */
+.title-banner {
+    background-color: var(--cor-roxo); 
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 2px solid var(--cor-amarelo); 
+    width: 100%;
+    max-width: 800px;
+}
+
+.title-banner h1 {
+    color: var(--cor-offwhite);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Instrução pequena */
+.instruction-box {
+    background-color: #fff;
+    color: var(--cor-texto);
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+
+/* === FORMULÁRIO (Estilo Original) === */
+.form-container {
+    background-color: var(--cor-cinza-bg);
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    box-shadow: 0 10px 25px rgba(30, 11, 68, 0.15);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.form-group label {
+    font-weight: 600;
+    width: 40%;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select {
+    width: 58%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--cor-offwhite);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--cor-roxo);
+    box-shadow: 0 0 4px rgba(30, 11, 68, 0.3);
+}
+
+/* === BOTÕES === */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar {
+    background-color: var(--cor-roxo);
+    color: var(--cor-amarelo);
+    border: 1px solid var(--cor-roxo);
+}
+
+.btn-enviar:hover {
+    background-color: #2a105e;
+    color: #fff;
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    color: var(--cor-texto);
+    border: 1px solid #999;
+}
+
+.btn-cancelar:hover {
+    background-color: #d1d1d1;
+}
+
+/* === RODAPÉ === */
+/* === RODAPÉ === */
+footer {
+    background-color: var(--cor-cinza-bg);
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid var(--cor-roxo);
+    color: var(--cor-texto);
+    margin-top: auto;
+    width: 100%;
+}
+
+footer h5.footer-title {
+    color: var(--cor-roxo);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Responsividade (Celulares) */
+@media (max-width: 768px) {
+    /* Ajuste Header */
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Ajuste Formulário */
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-group label, 
+    .form-group input, 
+    .form-group select {
+        width: 100%;
+    }
+    .form-group label {
+        margin-bottom: 5px;
+    }
+}

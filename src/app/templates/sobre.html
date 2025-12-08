@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - FR Turismo Executivo</title>
+    
+    <link rel="stylesheet" href="sobre.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=Segoe+UI&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="IMAGENS/Logo_Fr.png" alt="Logo FR" class="logo-img">
+            <span class="brand-name">FR Turismo Executivo</span>
+        </div>
+        <nav class="navbar">
+            <a href="home.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="contato.html">Contatos</a>
+            <a href="depoimentos.html">Depoimentos</a>
+            <a href="sobre.html" class="active">Sobre</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="title-banner">
+            <h1>Conheça a empresa!</h1>
+        </section>
+
+        <section class="about-container">
+            <div class="about-image">
+                <img src="IMAGENS/Motorista.png" alt="Foto do Motorista Fábio">
+            </div>
+            
+            <div class="about-text">
+                <h2>Quem somos?</h2>
+                <p>Desde 2015, o FR Turismo executivo atende a região de Guarulhos - São Paulo. Fundado por Fábio Rorato Rocha, o FR Turismo executivo oferece serviços para famílias, para que todos se sintam incríveis, descansem e aproveitem a viagem.</p>
+                
+                <p>Agora queremos expandir nossos negócios para Foz do Iguaçu trazendo o que já fazemos com excelência em Guarulhos. Nossos profissionais trazem confiabilidade, confidencialidade, higiene, segurança e transporte conforme solicitado anteriormente através do WhatsApp.</p>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section class="vehicle-section">
+            <div class="title-banner small-banner">
+                <h1>Nosso Veículo oficial</h1>
+            </div>
+
+            <div class="carousel-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="IMAGENS/Toyota1.png" alt="Toyota Corolla Frente">
+                    </div>
+                    <div class="slide">
+                        <img src="IMAGENS/Toyota2.png" alt="Toyota Corolla Lateral">
+                    </div>
+                    <div class="slide">
+                        <img src="IMAGENS/Toyota3.png" alt="Toyota Corolla Interior">
+                    </div>
+                </div>
+
+                <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+                <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+            </div>
+
+            <div class="vehicle-details">
+                <p>O Toyota Corolla 2022 é um sedan de sucesso no mercado brasileiro, conhecido pela sua confiabilidade, bom desempenho e segurança. Ele contém bancos em couro, travas elétricas, conexão USB, freios ABS, airbags, piloto automático adaptativo e volante com ajuste de altura.</p>
+                
+                <p>As versões híbridas oferecem ainda a tecnologia Toyota Safety Sense, com sistemas como pré-colisão frontal, assistência de permanência de faixa e faróis altos automáticos.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h5 class="footer-title">Em caso de dúvidas</h5>
+        <p>Mande um e-mail ou uma mensagem para:<br> 
+        <strong>(45) 99916-2194</strong> ou <strong>roratotransladoexecutivo@gmail.com</strong></p>
+        <p class="copyright">FR Turismo Executivo © 2025</p>
+    </footer>
+
+    <script>
+        let indiceSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function mostrarSlide(n) {
+            if (n >= slides.length) indiceSlide = 0;
+            if (n < 0) indiceSlide = slides.length - 1;
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[indiceSlide].classList.add('active');
+        }
+
+        function mudarSlide(n) {
+            mostrarSlide(indiceSlide += n);
+        }
+
+        // Passar slide automaticamente a cada 5 segundos
+        setInterval(() => {
+            mudarSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>

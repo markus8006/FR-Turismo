@@ -1,0 +1,284 @@
+/* === RESET E VARIÁVEIS === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-roxo: #1e0b44;
+    --cor-amarelo: #e6cb7f;
+    --cor-cinza-bg: #e8e8e8;
+    --cor-offwhite: #fdfdfd;
+    --cor-texto: #2b2727;
+}
+
+body {
+    background-color: var(--cor-offwhite);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* === CABEÇALHO === */
+.main-header {
+    background-color: var(--cor-cinza-bg);
+    padding: 15px 30px;
+    border-bottom: 2px solid var(--cor-roxo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    max-height: 60px;
+    width: auto;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--cor-roxo);
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    background-color: #dcdcdc;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: var(--cor-roxo);
+    color: var(--cor-amarelo);
+    border-color: var(--cor-roxo);
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o site na tela */
+    padding: 40px 20px;
+}
+
+/* Títulos Padronizados */
+.title-banner {
+    background-color: var(--cor-roxo); 
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 2px solid var(--cor-amarelo); 
+}
+
+.title-banner h1 {
+    color: var(--cor-offwhite);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.title-banner.small-banner {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* === SEÇÃO QUEM SOMOS === */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px; /* Tamanho máximo da foto do motorista */
+    border-radius: 8px;
+    border: 4px solid var(--cor-amarelo);
+    box-shadow: 5px 5px 0px var(--cor-roxo); /* Efeito visual legal */
+}
+
+.about-text {
+    flex: 1; /* O texto ocupa o espaço restante */
+}
+
+.about-text h2 {
+    color: var(--cor-roxo);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--cor-amarelo);
+    display: inline-block;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Linha divisória */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 40px 0;
+}
+
+/* === SEÇÃO VEÍCULO === */
+.vehicle-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Carrossel (Mesmo estilo da Home) */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    aspect-ratio: 16 / 9; /* Mantém proporção retangular */
+    background-color: #000;
+}
+
+.slide {
+    display: none;
+    height: 100%;
+}
+
+.slide.active {
+    display: block;
+    animation: fade 1s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+}
+
+/* Setas do carrossel */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+
+.prev:hover, .next:hover {
+    background-color: var(--cor-roxo);
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Texto do Veículo */
+.vehicle-details {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cor-cinza-bg);
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.vehicle-details p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* === RODAPÉ === */
+/* === RODAPÉ === */
+footer {
+    background-color: var(--cor-cinza-bg);
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid var(--cor-roxo);
+    color: var(--cor-texto);
+    margin-top: auto;
+    width: 100%;
+}
+
+footer h5.footer-title {
+    color: var(--cor-roxo);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* === RESPONSIVIDADE (Celular) === */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Faz o texto ficar embaixo da foto no celular */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+
+    .about-text p {
+        text-align: center; /* Texto centralizado no celular fica melhor */
+    }
+}

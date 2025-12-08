@@ -1,0 +1,242 @@
+/* === RESET E VARIÁVEIS === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-roxo: #1e0b44;
+    --cor-amarelo: #e6cb7f;
+    --cor-cinza-bg: #e8e8e8;
+    --cor-offwhite: #fdfdfd;
+    --cor-texto: #2b2727;
+}
+
+body {
+    background-color: var(--cor-offwhite);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* === CABEÇALHO === */
+.main-header {
+    background-color: var(--cor-cinza-bg);
+    padding: 15px 30px;
+    border-bottom: 2px solid var(--cor-roxo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    max-height: 60px;
+    width: auto;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--cor-roxo);
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    background-color: #dcdcdc;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: var(--cor-roxo);
+    color: var(--cor-amarelo);
+    border-color: var(--cor-roxo);
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Banner */
+.banner-container {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.banner-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Botão CTA */
+.cta-container {
+    margin: 20px 0 40px 0;
+    text-align: center;
+    width: 90%;
+}
+
+.btn-cta {
+    background-color: var(--cor-roxo);
+    color: var(--cor-amarelo);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 2px solid var(--cor-amarelo);
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-cta:hover {
+    background-color: #2a105e;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* === CARROSSEL PERSONALIZADO (SEM BOOTSTRAP) === */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 40px auto; /* Centraliza */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Esconde todos os slides por padrão */
+.slide {
+    display: none;
+    animation: fade 1.5s; /* Efeito suave */
+}
+
+/* Mostra apenas o slide com a classe active */
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Botões Next/Prev */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--cor-roxo);
+}
+
+/* Animação de Fade (aparecer suave) */
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Textos */
+.text-content {
+    max-width: 800px;
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* === RODAPÉ === */
+footer {
+    background-color: var(--cor-cinza-bg);
+    text-align: center;
+    padding: 20px;
+    border-top: 4px solid var(--cor-roxo);
+    color: var(--cor-texto);
+    margin-top: auto;
+    width: 100%;
+}
+
+footer h5.footer-title {
+    color: var(--cor-roxo);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn-cta {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
