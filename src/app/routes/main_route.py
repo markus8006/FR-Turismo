@@ -8,6 +8,9 @@ main = Blueprint('main', __name__)
 def home_page():
     return render_template("home.html")
 
+@main.route("/agendamento")
+def agendamento_page():
+    return render_template("agendamento.html")
 
 @main.route("/serviços")
 def servicos_page():
