@@ -22,9 +22,17 @@ body {
     min-height: 100vh;
 }
 
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 /* === CABEÇALHO / MENU === */
 .main-header {
-    background-color: var(--cor-cinza-bg); 
+    background-color: var(--cor-cinza-bg);
     padding: 15px 30px;
     border-bottom: 2px solid var(--cor-roxo);
     display: flex;
@@ -44,17 +52,6 @@ body {
     width: auto;
 }
 
-.logo-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: #ccc;
-    border: 1px solid #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-}
-
 .brand-name {
     font-weight: bold;
     font-size: 1.2rem;
@@ -69,7 +66,7 @@ body {
 .navbar a {
     text-decoration: none;
     color: var(--cor-texto);
-    background-color: #dcdcdc; 
+    background-color: #dcdcdc;
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -84,28 +81,25 @@ body {
 }
 
 /* === CONTEÚDO PRINCIPAL === */
-main {
-    flex: 1;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* Título Banner */
 .title-banner {
-    background-color: var(--cor-roxo); 
+    background-color: var(--cor-roxo);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 30px;
-    border: 2px solid var(--cor-amarelo); 
+    border: 2px solid var(--cor-amarelo);
 }
 
 .title-banner h1 {
     color: var(--cor-amarelo);
     font-size: 1.4rem;
     text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.title-banner p {
+    color: #fff;
+    font-size: 1rem;
 }
 
 /* Botões de Ação */
@@ -113,81 +107,117 @@ main {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 button {
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     font-size: 0.95rem;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 button:hover {
     transform: translateY(-2px);
+    opacity: 0.95;
 }
 
-.btn-secondary {
-    /* Seus estilos atuais */
-    background-color: #ccc; /* ou a cor que estava */
-    border: 2px solid #999;
-    
-    /* Adicione/Garanta estes: */
-    padding: 0; /* Remove padding do botão para o link controlar o espaço */
-    cursor: pointer;
+.btn-primary {
+    background-color: var(--cor-roxo);
+    border: none;
+    padding: 0;
 }
 
-.btn-secondary a {
-    text-decoration: none;
-    color: inherit; /* Usa a cor do pai */
+.btn-primary a,
+.btn-primary.submit {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 15px 30px; /* O espaçamento interno (tamanho do botão) vem pra cá */
-}
-
-/* Estilizando o contêiner (o botão em si) */
-.btn-primary {
-    background-color: var(--cor-roxo); /* A cor fica aqui no pai */
-    border: none; /* Remove a borda cinza padrão */
-    padding: 0; /* Remove o espaçamento que criava a área cinza */
-    border-radius: 8px; /* Opcional: arredonda os cantos se desejar */
-    cursor: pointer;
-    transition: 0.3s; /* Para efeito suave ao passar o mouse */
-}
-
-/* Estilizando o link dentro do botão */
-.btn-primary a {
-    display: block; /* Faz o link se comportar como um bloco */
-    width: 100%;    /* Preenche 100% da largura do botão */
-    height: 100%;   /* Preenche 100% da altura do botão */
-    padding: 15px 30px; /* O tamanho/grossura do botão é definido aqui agora */
-    
-    /* Cores e texto */
+    padding: 12px 26px;
     text-decoration: none;
     color: var(--cor-amarelo);
     font-weight: bold;
+    background-color: transparent;
+    border: none;
+    text-align: center;
 }
 
-/* Opcional: Efeito Hover (passar o mouse) */
-.btn-primary:hover {
-    opacity: 0.9; /* Clareia levemente ao passar o mouse */
+.btn-primary.submit {
+    border-radius: 8px;
+}
+
+/* === FORMULÁRIO DE DEPOIMENTOS === */
+.testimonial-form {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-form h2 {
+    color: var(--cor-roxo);
+    margin-bottom: 10px;
+}
+
+.testimonial-form p {
+    margin-bottom: 18px;
+}
+
+.depoimento-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fafafa;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* === GRID DE DEPOIMENTOS === */
 .testimonials-grid {
     display: grid;
-    /* Colunas responsivas */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
-/* Estilo do Card */
 .card {
     background-color: var(--cor-cinza-bg);
     border: 1px solid #ccc;
@@ -209,15 +239,28 @@ button:hover {
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background-color: var(--cor-roxo);
     border-radius: 50%;
+    color: var(--cor-amarelo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .user-name {
     font-weight: bold;
     color: var(--cor-roxo);
+}
+
+.date {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 2px;
 }
 
 .card-body {
@@ -226,7 +269,7 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 15px;
-    min-height: 80px; 
+    min-height: 80px;
 }
 
 .card-footer {
@@ -234,12 +277,18 @@ button:hover {
 }
 
 .stars {
-    color: var(--cor-amarelo); 
+    color: var(--cor-amarelo);
     font-size: 1.2rem;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
-/* === RODAPÉ === */
+.empty-state {
+    text-align: center;
+    grid-column: 1 / -1;
+    color: #555;
+    padding: 12px;
+}
+
 /* === RODAPÉ === */
 footer {
     background-color: var(--cor-cinza-bg);
@@ -258,19 +307,13 @@ footer h5.footer-title {
     font-size: 1.1rem;
 }
 
-.copyright {
-    margin-top: 10px;
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .main-header {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
@@ -278,5 +321,9 @@ footer h5.footer-title {
 
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        justify-content: stretch;
     }
 }
