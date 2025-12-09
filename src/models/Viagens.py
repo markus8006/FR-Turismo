@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from src.app import db
+
 
 class Viagens(db.Model):
     __tablename__ = "viagens"
@@ -22,3 +24,6 @@ class Viagens(db.Model):
     nomes = db.Column(db.JSON, default=list)
 
     depoimentos = db.relationship("Depoimentos", backref="viagem", lazy=True)
+
+    def __repr__(self) -> str:  # pragma: no cover - debug helper
+        return f"<Viagem {self.id} ({self.tipo})>"

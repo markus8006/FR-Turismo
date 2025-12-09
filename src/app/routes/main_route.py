@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 
+from src.repository.depoimentos_repository import DepoimentosRepository
 
-main = Blueprint('main', __name__)
+main = Blueprint("main", __name__)
 
 
 @main.route("/")
@@ -37,9 +38,35 @@ def contato_page():
     return render_template("contato.html")
 
 
-@main.route("/depoimentos")
+@main.route("/depoimentos", methods=["GET", "POST"])
 def depoimentos_page():
-    return render_template("depoimentos.html")
+    depoimentos_repo = DepoimentosRepository()
+
+    if request.method == "POST":
+        nome = request.form.get("nome", "").strip()
+        avaliacao_raw = request.form.get("avaliacao", "").strip()
+        conteudo = request.form.get("conteudo", "").strip()
+
+        if not nome or not conteudo:
+            flash("Informe seu nome e depoimento para enviar.")
+            return redirect(url_for("main.depoimentos_page"))
+
+        try:
+            avaliacao = int(avaliacao_raw) if avaliacao_raw else 5
+        except ValueError:
+            avaliacao = 5
+
+        avaliacao = min(max(avaliacao, 1), 5)
+
+        depoimentos_repo.add(author_name=nome, rating=avaliacao, conteudo=conteudo)
+
+        flash("Depoimento enviado com sucesso! Obrigado por compartilhar sua experiência.")
+        return redirect(url_for("main.depoimentos_page"))
+
+    depoimentos = sorted(
+        depoimentos_repo.get_all(), key=lambda depoimento: depoimento.created_at or 0, reverse=True
+    )
+    return render_template("depoimentos.html", depoimentos=depoimentos)
 
 
 @main.route("/sobre")

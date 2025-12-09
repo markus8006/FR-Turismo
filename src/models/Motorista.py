@@ -1,7 +1,9 @@
 from datetime import datetime
+
 from src.app import db
 
-class Motoristas(db.Model):
+
+class Motorista(db.Model):
     __tablename__ = "motoristas"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -12,3 +14,8 @@ class Motoristas(db.Model):
     status = db.Column(db.Boolean, default=True)
 
     viagens = db.relationship("Viagens", backref="motorista", lazy=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self) -> str:  # pragma: no cover - debug helper
+        return f"<Motorista {self.email}>"

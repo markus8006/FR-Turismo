@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from src.app import db
+
 
 class User(db.Model):
     __tablename__ = "users"
@@ -12,6 +14,10 @@ class User(db.Model):
     senha = db.Column(db.String(255), nullable=False)
     status = db.Column(db.Boolean, default=True)
 
-
     viagens = db.relationship("Viagens", backref="cliente", lazy=True)
     depoimentos = db.relationship("Depoimentos", backref="autor", lazy=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self) -> str:  # pragma: no cover - debug helper
+        return f"<User {self.email}>"
