@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento - FR Turismo Executivo</title>
-    <link rel="stylesheet" href="agendamento.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% set active_page = 'agendamento' %}
 
-    <header class="main-header">
-        <div class="logo-area">
-            <img src="IMAGENS/Logo_Fr.png" class="logo-img">
-            <span class="brand-name">FR Turismo Executivo</span>
-        </div>
-        <nav class="navbar">
-            <a href="home.html">Início</a>
-            <a href="#" class="active">Serviços</a> 
-            <a href="contato.html">Contatos</a>
-            <a href="depoimentos.html">Depoimentos</a>
-            <a href="sobre.html">Sobre</a>
-        </nav>
-    </header>
+{% block title %}Agendamento - FR Turismo Executivo{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/agendamento.css') }}">
+{% endblock %}
+
+{% block content %}
     <main>
         <section class="title-banner">
             <h1>Página de agendamento de serviços</h1>
@@ -31,30 +17,30 @@
             Coloque seus dados abaixo
         </div>
 
-        <form class="form-container">
+        <form class="form-container" action="{{ url_for('main.agendamento_page') }}" method="post">
             <div class="form-group">
                 <label for="nome">Insira seu Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome completo">
+                <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
             </div>
 
             <div class="form-group">
                 <label for="cpf">Insira seu CPF:</label>
-                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Insira seu email:</label>
-                <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
             </div>
 
             <div class="form-group">
                 <label for="servico">Insira seu serviço:</label>
-                <input type="text" id="servico" name="servico" placeholder="Ex: Transfer Executivo">
+                <input type="text" id="servico" name="servico" placeholder="Ex: Transfer Executivo" required>
             </div>
 
             <div class="form-group">
                 <label for="qtd">Insira a quantidade de Pessoas:</label>
-                <select id="qtd" name="qtd">
+                <select id="qtd" name="qtd" required>
                     <option value="">--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -65,7 +51,7 @@
 
             <div class="form-group">
                 <label for="criancas">Na viagem vão crianças?</label>
-                <select id="criancas" name="criancas">
+                <select id="criancas" name="criancas" required>
                     <option value="">--</option>
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
@@ -74,7 +60,7 @@
 
             <div class="form-group">
                 <label for="pcd">Possui alguma deficiência?</label>
-                <select id="pcd" name="pcd">
+                <select id="pcd" name="pcd" required>
                     <option value="">--</option>
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
@@ -83,22 +69,13 @@
 
             <div class="form-group">
                 <label for="data">Data e hora:</label>
-                <input type="datetime-local" id="data" name="data">
+                <input type="datetime-local" id="data" name="data" required>
             </div>
 
             <div class="button-group">
                 <button type="submit" class="btn-enviar">Enviar</button>
-                <button type="button" class="btn-cancelar">Cancelar</button>
+                <button type="reset" class="btn-cancelar">Cancelar</button>
             </div>
         </form>
     </main>
-
-    <footer>
-        <h5 class="footer-title">Em caso de dúvidas</h5>
-        <p>Mande um e-mail ou uma mensagem para:<br> 
-        <strong>(45) 99916-2194</strong> ou <strong>roratotransladoexecutivo@gmail.com</strong></p>
-        <p class="copyright">FR Turismo Executivo © 2025</p>
-    </footer>
-
-</body>
-</html>
+{% endblock %}

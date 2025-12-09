@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depoimentos - FR Turismo Executivo</title>
-    <link rel="stylesheet" href="depoimentos.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% set active_page = 'depoimentos' %}
 
-    <header class="main-header">
-        <div class="logo-area">
-            <img src="IMAGENS/Logo_Fr.png" class="logo-img">
-            <span class="brand-name">FR Turismo Executivo</span>
-        </div>
-        <nav class="navbar">
-            <a href="home.html">Início</a>
-            <a href="servicos.html">Serviços</a>
-            <a href="contato.html">Contatos</a>
-            <a href="depoimentos.html" class="active">Depoimentos</a>
-            <a href="sobre.html">Sobre</a>
-        </nav>
-    </header>
+{% block title %}Depoimentos - FR Turismo Executivo{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/depoimentos.css') }}">
+{% endblock %}
+
+{% block content %}
     <main>
         <section class="title-banner">
             <h1>Nossos depoimentos de clientes da Fr Turismo Executivo</h1>
@@ -29,11 +15,10 @@
 
         <section class="action-buttons">
             <button class="btn-secondary"><a href="https://forms.gle/vQLuR9BoyCbM3Gxn9">Nos avalie!</a></button>
-            <button class="btn-primary"><a href="servicos.html">Curtiu? clique para ir aos serviços!</a></button>
+            <button class="btn-primary"><a href="{{ url_for('main.servicos_page') }}">Curtiu? clique para ir aos serviços!</a></button>
         </section>
 
         <section class="testimonials-grid">
-            
             <div class="card">
                 <div class="card-header">
                     <div class="avatar"></div>
@@ -123,16 +108,6 @@
                     <span class="stars">★★★★★</span>
                 </div>
             </div>
-
         </section>
     </main>
-
-    <footer>
-        <h5 class="footer-title">Em caso de dúvidas</h5>
-        <p>Mande um e-mail ou uma mensagem para:<br> 
-        <strong>(45) 99916-2194</strong> ou <strong>roratotransladoexecutivo@gmail.com</strong></p>
-        <p class="copyright">FR Turismo Executivo © 2025</p>
-    </footer>
-
-</body>
-</html>
+{% endblock %}
