@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FR Turismo Executivo{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&family=Segoe+UI&display=swap" rel="stylesheet">
+
+    {% block styles %}{% endblock %}
+    <style>
+        .flash-messages {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .flash-message {
+            background: #e6cb7f;
+            color: #1e0b44;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="{{ url_for('static', filename='imgs/Logo_Fr.png') }}" alt="Logo FR" class="logo-img">
+            <span class="brand-name">FR Turismo Executivo</span>
+        </div>
+        <nav class="navbar">
+            <a href="{{ url_for('main.home_page') }}" class="{% if active_page == 'home' %}active{% endif %}">Início</a>
+            <a href="{{ url_for('main.servicos_page') }}" class="{% if active_page == 'servicos' %}active{% endif %}">Serviços</a>
+            <a href="{{ url_for('main.agendamento_page') }}" class="{% if active_page == 'agendamento' %}active{% endif %}">Agendamento</a>
+            <a href="{{ url_for('main.contato_page') }}" class="{% if active_page == 'contato' %}active{% endif %}">Contatos</a>
+            <a href="{{ url_for('main.depoimentos_page') }}" class="{% if active_page == 'depoimentos' %}active{% endif %}">Depoimentos</a>
+            <a href="{{ url_for('main.sobre_page') }}" class="{% if active_page == 'sobre' %}active{% endif %}">Sobre</a>
+        </nav>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p class="flash-message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <h5 class="footer-title">Em caso de dúvidas</h5>
+        <p>Mande um e-mail ou uma mensagem para:<br>
+        <strong>(45) 99916-2194</strong> ou <strong>roratotransladoexecutivo@gmail.com</strong></p>
+        <p class="copyright">FR Turismo Executivo © 2025</p>
+    </footer>
+</body>
+</html>
